@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8>
+        <meta name="viewport" content ="width=device-width, initial-scale=1">
+        <title>Still Life Coding</title>
+        <style>
+            main{
+                /* border: 1px solid black; */
+                background-color:rgb(62, 62, 62);
+                width:90vw;
+                height: 90vh;
+                margin: auto;
+                display: flex;
+                position:relative;
+            }
+            .box{
+                width: 200px;
+                height: 300px;
+                display: inline-block;
+                margin-right: 20px;
+                border-radius: 15px;
+            }
+
+            #table{
+                width: 100%;
+                height: 20%;
+                background-color: rgb(190, 179, 168);
+                position: absolute;
+                bottom:0;
+            }
+            #cloth{
+                width: 80%;
+                height: 88%;
+                background: #f2ff63;
+                background: linear-gradient(90deg, rgba(242, 255, 99, 1) 0%, rgba(188, 247, 244, 1) 23%, rgba(242, 246, 193, 1) 39%, rgba(196, 245, 245, 1) 50%, rgba(249, 243, 74, 1) 80%, rgba(199, 253, 255, 1) 100%);
+                position: absolute;
+                left:0;
+                right:0;
+                margin: auto;
+                bottom: 20%;
+                transform: skewX(-30deg);
+            }
+            #objects{
+                width:450px;
+                height:450px;
+                position: absolute;
+                /* border:1px solid rgb(174, 45, 45); */
+                left:0;
+                right:0;
+                margin:auto;
+                bottom:10%;
+                z-index:10;
+            }
+            /* Pineapple */
+             #pineapple{
+                width:25%;
+                height:80%;
+                left:25%;
+                /* border: 1px solid black; */
+                position: absolute;
+                bottom:5%;
+                
+            }
+            #pa-stem{
+                width: 100%;
+                height: 50%;
+                position:absolute;
+                left:20%;
+                background-color: rgb(34, 139, 34);
+                clip-path: polygon(6% 95%, 0% 72%, 9% 78%, 3% 59%, 8% 69%, 1% 47%, 4% 39%, 11% 38%, 9% 53%, 18% 63%, 20% 49%, 19% 27%, 24% 21%, 24% 31%, 31% 12%, 45% 6%, 38% 20%, 38% 29%, 61% 3%, 67% 5%, 55% 18%, 55% 27%, 64% 16%, 74% 9%, 67% 26%, 57% 36%, 63% 43%, 81% 12%, 81% 34%, 75% 44%, 88% 44%, 83% 60%, 92% 65%, 78% 72%, 90% 74%, 70% 79%, 56% 88%, 51% 98%, 74% 88%, 64% 97%, 58% 100%, 15% 100%);
+            }
+
+            #pa-fruit{
+                background-image: url('/Users/mac/Desktop/Interactive 1/still life coding/Screenshot 2026-02-02 at 1.26.15 PM.png');
+                width: 100%;
+                height: 50%;
+                position: absolute;
+                bottom:0;
+                background-size: cover; 
+                /* background: #c0db70; */
+                /* background: linear-gradient(90deg, rgba(192, 219, 112, 1) 1%, rgba(255, 174, 0, 1) 51%, rgba(250, 230, 47, 1) 100%); */
+                border-radius: 35px;
+                clip-path: polygon(35% 1%, 10% 18%, 0% 37%, 1% 82%, 7% 99%, 18% 100%, 69% 100%, 86% 89%, 97% 76%, 97% 28%, 88% 7%, 74% 0%);
+            }
+            /* -- Apples */
+            .apples{
+                width:15%;
+                height:15%;
+                background: #d48942;
+                background: radial-gradient(circle, rgba(212, 137, 66, 1) 0%, rgba(233, 226, 88, 1) 0%, rgba(212, 37, 25, 1) 100%);
+                position: absolute;
+                bottom:15%;
+                border-radius: 50%;
+            }
+            #apple-1{
+                bottom:3%;
+                left:5%;
+            }
+            #apple-2{
+                bottom:-2%;
+                left:15%;
+            }
+            #pencil{
+                width: 18%;
+                height: 1%;
+                background-color: rgb(56, 86, 10);
+                position: absolute;
+                bottom:-4%;
+                left:-2%;
+                transform: rotate(40deg);
+            }
+            .shine{
+                width:20%;
+                height:20%;
+                background-color: rgb(255, 255, 255);
+                border-radius: 50%;
+                position: absolute;
+                top:15%;
+                left:15%;
+                opacity: 0.95;
+                filter: blur(2px);
+            }
+            /* flowers and bottles */
+            #flower-glass{
+                width:40%;
+                height:90%;
+                right:25%;
+                /* border: 1px solid black; */
+                position: absolute;
+                bottom:5%;
+            }
+            #glass{
+                width: 40%;
+                height: 40%;
+                border: 2px solid rgb(255, 255, 255); 
+                background-color: white;
+                opacity:0.5;
+                border-radius: 50% / 10%;
+                position: absolute;
+                left: 40%;
+                bottom:0;
+                background-color: rgba(173, 216, 230, 0.5);
+                z-index:10;
+            }
+            .flower-1, .flower-2, .flower-3{
+                width: 110%;  
+                height: 110%; 
+                position: absolute;
+                bottom: 0%;
+                right: -20%;
+                background-image: url('juhua.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                
+            }
+
+            /* Individual rotations for each flower */
+            .flower-1 {
+                left:5%;
+                transform: rotate(-15deg);
+                z-index: 1;
+            }
+
+            .flower-2 {
+                right:-5%;
+                transform: rotate(0deg);
+                z-index: 2;
+            }
+
+            .flower-3 {
+                transform: rotate(15deg);
+                z-index: 3;
+            }
+            
+            #flower-stem{
+                width: 80%;  
+                height: 70%; 
+                background: #3c471d;
+                background: radial-gradient(circle, rgb(59, 73, 19) 1%, rgba(61, 102, 26, 1) 51%, rgba(78, 130, 78, 1) 99%);
+                clip-path: polygon(31% 99%, 40% 67%, 28% 48%, 17% 47%, 10% 52%, 12% 44%, 24% 43%, 36% 45%, 37% 53%, 41% 34%, 30% 32%, 19% 22%, 35% 24%, 30% 13%, 45% 29%, 66% 22%, 60% 39%, 50% 39%, 54% 47%, 75% 40%, 89% 36%, 92% 45%, 83% 45%, 62% 56%, 55% 62%, 55% 75%, 52% 79%, 52% 96%, 48% 100%, 46% 82%, 44% 98%, 39% 99%, 33% 98%);
+                position: absolute;
+                top: 20%; 
+                left: 15%;
+                right: 0%;
+                margin: auto;
+            }
+            
+            #bottle{
+                width:40%;
+                height:40%;
+                background-color: blue;
+                clip-path: polygon(22% 98%, 24% 56%, 39% 36%, 42% 7%, 39% 4%, 43% 4%, 41% 2%, 54% 2%, 53% 6%, 55% 9%, 54% 37%, 62% 55%, 62% 99%, 46% 100%, 34% 100%);
+                position: absolute;
+                bottom:0%;
+                right:5%;
+                opacity:0.55;
+                z-index:10;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <main>
+            <div id="objects">
+                <!-- Pineapple -->
+                <div id="pineapple">
+                    <div id="pa-stem"></div>
+                    <div id="pa-fruit"></div>
+                </div>
+                <!-- Apples-->
+                 <div class="apples"id="apple-1">
+                    <div class="shine"></div>
+                 </div>
+                 <div class="apples"id="apple-2">
+                    <div class="shine"></div>
+                 </div>
+                 <!-- other objects -->
+                 <div id="pencil"></div>
+                 <div id="bottle"></div>
+                <div id="flower-glass">
+                    <div id="glass"></div>
+                    <div id="flower-stem"></div>
+                    <div class="flower-1"></div>
+                    <div class="flower-2"></div>
+                    <div class="flower-3"></div>
+                    </div>
+                <div id="bottle"></div>
+            </div>
+            <div class="container"></div>
+            <div id="table">
+                <div id="cloth"></div>
+            </div>
+        </main>
+    </body>
+</html>
